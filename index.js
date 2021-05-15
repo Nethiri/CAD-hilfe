@@ -102,7 +102,15 @@ function fillBefundArray(BefArray, array) {
             BefArray[posInBefArray].spline.push([array[i][5],array[i][6],array[i][7]]);
             continue;
         }
+        if(array[i][10].toLowerCase().includes("Schnittgrenze")) {
+            BefArray[posInBefArray].spline.push([array[i][5],array[i][6],array[i][7]]);
+            continue;
+        }
         if(array[i][10].toLowerCase().includes("Grenze")) {
+            BefArray[posInBefArray].spline.push([array[i][5],array[i][6],array[i][7]]);
+            continue;
+        }
+        if(array[i][10].toLowerCase().includes("Umriss")) {
             BefArray[posInBefArray].spline.push([array[i][5],array[i][6],array[i][7]]);
             continue;
         }
@@ -111,6 +119,11 @@ function fillBefundArray(BefArray, array) {
             BefArray[posInBefArray].line.push([array[i][5],array[i][6],array[i][7]]);
             continue;
         }
+        if(array[i][10].toLowerCase().includes("profilnagel")) {
+            BefArray[posInBefArray].line.push([array[i][5],array[i][6],array[i][7]]);
+            continue;
+        }
+
         //niv
         if(array[i][10].toLowerCase().includes("niv")){
             BefArray[posInBefArray].niv.push([array[i][5],array[i][6],array[i][7]]);
@@ -125,7 +138,7 @@ function fillBefundArray(BefArray, array) {
 function getBefundArray(array) {
     BefundArray = [];
     for(let i = 0; i < array.length; i++) {
-        if(array[i][10] === "Befundgrenze" || array[i][10] === "Grenze" || array[i][10] === "Grabungsgrenze"){
+        if(array[i][10] === "Befundgrenze" || array[i][10] === "Grenze" || array[i][10] === "Grabungsgrenze" || array[i][10] === "Umriss" || array[i][10] === "Schnittgrenze"){
             //console.log("Befund found " + i)
             let bef = new aBefund([],[],array[i][11],[]);
             //bef.spline.push([array[i][0],array[i][1],array[i][2]])
