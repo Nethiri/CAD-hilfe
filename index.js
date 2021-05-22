@@ -151,7 +151,7 @@ function getBefundArray(array) {
 
     return BefundArray;
 }
-
+/* !!!!!!!!!!!!!!!!!! NICHT LÄNGER GENUTZT !!!!!!!!!!!!!!!!!!!
 function generateOutPut(text) {
     let txt = "";
     let array = getBefundArray(getTableArray(text));
@@ -180,7 +180,7 @@ function generateOutPut(text) {
     //console.log(txt.split(/\r\n|\r|\n/).length - 1);
     return txt;
 }
-
+*/
 function createDIV(n) {
     let ret = document.createElement("DIV");
     ret.appendChild(document.createTextNode(n));
@@ -213,6 +213,10 @@ function showOutput(text) {
         }
         outPutBox.appendChild(document.createElement("BR"));
         indexBox.appendChild(document.createElement("BR"));
+
+        outPutBox.appendChild(createDIV("_POINT"));
+        indexBox.appendChild(document.createElement("BR"));
+
         for(let entry of array[i].niv){
             outPutBox.appendChild(createDIV(entry[0] + "," + entry[1] + "," + entry[2]));
             indexBox.appendChild(createDIV("NIV"));
