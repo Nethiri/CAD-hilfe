@@ -155,18 +155,23 @@ function getBefundArray(array) {
 function generateOutPut(text) {
     let txt = "";
     let array = getBefundArray(getTableArray(text));
+
+    alert("Test");    
+    console.log("Test");
+
     //console.log(array);
     for(let i = 0; i<array.length; i++) {
         let txtsnip = "_SPLINE\n";
         for(let entry of array[i].spline){
             txtsnip = txtsnip + entry[5] + "," + entry[6] + "," + entry[7] + "\n";
         }
-        txtsnip = txtsnip + "s\n"
-        txtsnip = txtsnip + "_LINE\n"
+        txtsnip = txtsnip + "s\n";
+        txtsnip = txtsnip + "_LINE\n";
         for(let entry of array[i].line){
             txtsnip = txtsnip + entry[5] + "," + entry[6] + "," + entry[7] + "\n";
         }
-        txtsnip = txtsnip + "\n"
+        txtsnip = txtsnip + "\n";
+        txtsnip = txtsnip + "_POINT\n";
         for(let entry of array[i].niv){
             txtsnip = txtsnip + entry[5] + "," + entry[6] + "," + entry[7] + "\n";
         }
