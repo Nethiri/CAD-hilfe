@@ -14,7 +14,22 @@ class aBefund {
 let BefundArray = undefined;
 
 onload = function() {
-    
+    let select = document.createElement("SELECT");
+    let opt1 = document.createElement("option");
+    opt1.appendChild(document.createTextNode("SPLINE"));
+    opt1.value = "_SPLINE";
+    select.appendChild(opt1);
+    let opt2 = document.createElement("option");
+    opt2.appendChild(document.createTextNode("3DPOLY"));
+    opt2.value = "_3DPOLY";
+    select.appendChild(opt2);
+    document.getElementById("platzfuerselect").appendChild(select);
+
+    CurrSelect = opt1.value;
+
+    select.onchange = function() {
+        CurrSelect = select.value;
+    }
 }
 
 // =============================================================================================
@@ -195,7 +210,12 @@ function showOutput(text) {
     indexBox.innerHTML = "";
 
     for(let i = 0; i<array.length; i++ ){
-        outPutBox.appendChild(createDIV("_SPLINE"));
+        if(CurrSelect === "_SPLINE"){
+            outPutBox.appendChild(createDIV("_SPLINE"));
+        }
+        if(CurrSelect === "_3DPOLY"){
+            outPutBox.appendChild(createDIV("_3DPOLY"));
+        }
         indexBox.appendChild(createDIV(array[i].name));
         for(let entry of array[i].spline) {
             outPutBox.appendChild(createDIV(entry[0] + "," + entry[1] + "," + entry[2]));
@@ -204,6 +224,7 @@ function showOutput(text) {
 
         outPutBox.appendChild(createDIV("s"));
         indexBox.appendChild(document.createElement("BR"));
+        
         outPutBox.appendChild(createDIV("_LINE"));
         indexBox.appendChild(document.createElement("BR"));
 
