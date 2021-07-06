@@ -157,9 +157,7 @@ function getBefundArray(array) {
             //console.log("Befund found " + i)
             let bef = new aBefund([],[],array[i][11],[]);
             bef.spline.push( [array[i][5], array[i][6], array[i][7]] );
-            //bef.spline.push([array[i][0],array[i][1],array[i][2]])
             BefundArray.push(bef);
-            // [array[i][5] ,array[i][6] ,array[i][7]]
         }    
     }
     BefundArray = fillBefundArray(BefundArray, array);
