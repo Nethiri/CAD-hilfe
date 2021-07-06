@@ -156,8 +156,10 @@ function getBefundArray(array) {
         if(array[i][10] === "Befundgrenze" || array[i][10] === "Grenze" || array[i][10] === "Grabungsgrenze" || array[i][10] === "Umriss" || array[i][10] === "Schnittgrenze"){
             //console.log("Befund found " + i)
             let bef = new aBefund([],[],array[i][11],[]);
+            bef.spline.push( [array[i][5], array[i][6], array[i][7]] );
             //bef.spline.push([array[i][0],array[i][1],array[i][2]])
             BefundArray.push(bef);
+            // [array[i][5] ,array[i][6] ,array[i][7]]
         }    
     }
     BefundArray = fillBefundArray(BefundArray, array);
